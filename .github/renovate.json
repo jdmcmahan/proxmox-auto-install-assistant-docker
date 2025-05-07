@@ -18,8 +18,8 @@
         {
             "description": "deb versions as Docker build envars",
             "customType": "regex",
-            "managerFilePatterns": [
-                "/^Dockerfile$/"
+            "fileMatch": [
+                "Dockerfile"
             ],
             "matchStrings": [
                 "#\\s*renovate:\\s*?(repoUrl=(?<repoUrl>.*?))?\\s*?(depName=(?<depName>.*?))?\\s*suite=(?<suite>.*?)?\\s*components=(?<components>.*?)?\\sENV .*?_VERSION=(?<currentValue>.*)"
