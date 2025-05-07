@@ -1,0 +1,31 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:recommended"
+    ],
+    "packageRules": [
+        {
+            "matchUpdateTypes": [
+                "minor",
+                "patch"
+            ],
+            "matchPackagePatterns": "proxmox",
+            "automerge": true,
+            "ignoreTests": true
+        }
+    ],
+    "customManagers": [
+        {
+            "description": "deb versions as Docker build envars",
+            "customType": "regex",
+            "managerFilePatterns": [
+                "/^Dockerfile$/"
+            ],
+            "matchStrings": [
+                "#\\s*renovate:\\s*?(repoUrl=(?<repoUrl>.*?))?\\s*?(depName=(?<depName>.*?))?\\s*suite=(?<suite>.*?)?\\s*components=(?<components>.*?)?\\sENV .*?_VERSION=(?<currentValue>.*)"
+            ],
+            "registryUrlTemplate": "{{repoUrl}}?suite={{#if suite}}{{suite}}{{else}}stable{{/if}}&components={{components}}&binaryArch=amd64",
+            "datasourceTemplate": "deb"
+        }
+    ]
+}

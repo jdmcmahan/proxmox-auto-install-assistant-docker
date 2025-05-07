@@ -1,0 +1,27 @@
+name: Create GitHub Release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - Dockerfile
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get Proxmox version
+        id: get-proxmox-version
+        run: echo "version=$(awk -F '=' '/^ENV PROXMOX_AUTO_INSTALL_ASSISTANT_VERSION/{ print $2 }' ./Dockerfile)" >> "$GITHUB_OUTPUT"
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          token: ${{ secrets.RELEASES_TOKEN }}
+          tag_name: v${{ steps.get-proxmox-version.outputs.version }}
+          generate_release_notes: true
