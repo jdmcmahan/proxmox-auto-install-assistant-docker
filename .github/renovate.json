@@ -9,17 +9,19 @@
                 "minor",
                 "patch"
             ],
-            "matchPackagePatterns": "proxmox",
             "automerge": true,
-            "ignoreTests": true
+            "ignoreTests": true,
+            "matchPackageNames": [
+                "/proxmox/"
+            ]
         }
     ],
     "customManagers": [
         {
             "description": "deb versions as Docker build envars",
             "customType": "regex",
-            "fileMatch": [
-                "Dockerfile"
+            "managerFilePatterns": [
+                "/Dockerfile/"
             ],
             "matchStrings": [
                 "#\\s*renovate:\\s*?(repoUrl=(?<repoUrl>.*?))?\\s*?(depName=(?<depName>.*?))?\\s*suite=(?<suite>.*?)?\\s*components=(?<components>.*?)?\\sENV .*?_VERSION=(?<currentValue>.*)"
