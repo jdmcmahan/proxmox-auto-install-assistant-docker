@@ -5,7 +5,7 @@ RUN apt-get update \
     && wget https://enterprise.proxmox.com/debian/proxmox-release-bookworm.gpg -O /etc/apt/trusted.gpg.d/proxmox-release-bookworm.gpg \
     && echo "deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription" > /etc/apt/sources.list
 
-# renovate: repoUrl=http://download.proxmox.com/debian/pve depName=proxmox-auto-install-assistant suite=bookworm components=pve-no-subscription
+# renovate: repoUrl=https://download.proxmox.com/debian/pve depName=proxmox-auto-install-assistant suite=bookworm components=pve-no-subscription
 ENV PROXMOX_AUTO_INSTALL_ASSISTANT_VERSION=8.4.6
 
 RUN apt-get update \
