@@ -20,7 +20,7 @@ jobs:
         run: echo "version=$(awk -F '=' '/^ENV PROXMOX_AUTO_INSTALL_ASSISTANT_VERSION/{ print $2 }' ./Dockerfile)" >> "$GITHUB_OUTPUT"
 
       - name: Create release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           token: ${{ secrets.RELEASES_TOKEN }}
           tag_name: v${{ steps.get-proxmox-version.outputs.version }}
