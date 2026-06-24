@@ -1,4 +1,4 @@
-FROM --platform=amd64 debian:bookworm@sha256:731dd1380d6a8d170a695dbeb17fe0eade0e1c29f654cf0a3a07f372191c3f4b
+FROM --platform=amd64 debian:bookworm-20260623@sha256:30482e873082e906a4908c10529180aefb6f77620aea7404b909829fadc5d168
 
 RUN apt-get update \
     && apt-get install -y wget \
