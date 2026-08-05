@@ -1,4 +1,4 @@
-FROM --platform=amd64 debian:bookworm@sha256:731dd1380d6a8d170a695dbeb17fe0eade0e1c29f654cf0a3a07f372191c3f4b
+FROM --platform=amd64 debian:trixie@sha256:34cd9e9fd437c0a095ec39cb2e73422c9f30821b0d0848ed74fd0d43bae4d958
 
 RUN apt-get update \
     && apt-get install -y wget \
