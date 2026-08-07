@@ -20,13 +20,13 @@
         {
             "description": "deb versions as Docker build envars",
             "customType": "regex",
-            "managerFilePatterns": [
-                "/Dockerfile/"
+            "fileMatch": [
+                "(^|/)Dockerfile$"
             ],
             "matchStrings": [
-                "#\\s*renovate:\\s*?(repoUrl=(?<repoUrl>.*?))?\\s*?(depName=(?<depName>.*?))?\\s*suite=(?<suite>.*?)?\\s*components=(?<components>.*?)?\\sENV .*?_VERSION=(?<currentValue>.*)"
+                "#\\s*renovate:\\s*repoUrl=(?<registryUrl>http:\\/\\/[^\\s]+)\\s+depName=(?<depName>[^\\s]+)\\s+suite=(?<suite>[^\\s]+)\\s+components=(?<components>[^\\s]+)\\nENV\\s+.*?_VERSION=(?<currentValue>[^\\s]+)"
             ],
-            "registryUrlTemplate": "{{repoUrl}}?suite={{#if suite}}{{suite}}{{else}}stable{{/if}}&components={{components}}&binaryArch=amd64",
+            "registryUrlTemplate": "{{{registryUrl}}}?suite={{{suite}}}&components={{{components}}}&binaryArch=amd64",
             "datasourceTemplate": "deb"
         }
     ]
