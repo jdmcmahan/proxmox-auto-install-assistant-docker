@@ -1,4 +1,4 @@
-FROM --platform=amd64 debian:trixie@sha256:34cd9e9fd437c0a095ec39cb2e73422c9f30821b0d0848ed74fd0d43bae4d958
+FROM --platform=amd64 debian:trixie@sha256:9c6e381421d0f48d1b8133e573f33c185ee16cbf505eda9c4a8a4791b25ea8a6
 
 RUN apt-get update \
     && apt-get install -y extrepo
