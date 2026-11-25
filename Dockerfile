@@ -6,7 +6,7 @@ RUN apt-get update \
 RUN extrepo enable proxmox-pve
 
 # renovate: repoUrl=http://download.proxmox.com/debian/pve depName=proxmox-auto-install-assistant suite=trixie components=pve-no-subscription
-ENV PROXMOX_AUTO_INSTALL_ASSISTANT_VERSION=9.2.9
+ENV PROXMOX_AUTO_INSTALL_ASSISTANT_VERSION=9.2.13
 
 RUN apt-get update \
    && apt-get install -y proxmox-auto-install-assistant="${PROXMOX_AUTO_INSTALL_ASSISTANT_VERSION}" \
